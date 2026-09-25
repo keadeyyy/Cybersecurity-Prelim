@@ -2688,7 +2688,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2709,16 +2710,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "b464d3fa-443b-48e1-902f-096de7738fcb",
+                  "title": "Tampering with Payment Charge Amount",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Intercepting Charge request payloads crossing TB-02: Payment Zone and lowering charge amounts before they reach the payment gateway.",
+                  "mitigation": "Cryptographically sign charge payloads using HMAC private keys and enforce HTTPS/TLS 1.3 with strict gateway host validation.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": "9.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "7bfb4ac7-fa4e-477a-8f03-806f75a28cf0"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Charge request: token, amount"
@@ -2737,7 +2757,17 @@
                 "x": 370,
                 "y": -30
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -2956,17 +2986,7 @@
                 "x": 870,
                 "y": 280
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "shape": "flow",
@@ -3688,6 +3708,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Mr. Formentera",
-    "threatTop": 33
+    "threatTop": 34
   }
 }
