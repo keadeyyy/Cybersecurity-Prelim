@@ -2083,7 +2083,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2104,16 +2105,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "1b0e0eae-a8ac-4887-b9f1-f86368f48762",
+                  "title": "Payment Result Status Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Modifying a \"Failed\" payment gateway result payload to \"Success\" in transit to obtain free rides.",
+                  "mitigation": "Verify webhook signatures, nonces, and transaction IDs directly with the payment gateway API out-of-band.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": "8.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "7bfb4ac7-fa4e-477a-8f03-806f75a28cf0"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Charge result"
@@ -2138,7 +2158,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2159,16 +2180,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "0a5e1e36-a484-4be9-95b5-ff212654f38e",
+                  "title": "Disclosure of Payment Receipt Details",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Intercepting billing receipts in transit, exposing last 4 digits of payment cards and trip locations.",
+                  "mitigation": "Mask sensitive payment identifiers on receipts and deliver via secure TLS channels.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": "5.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Receipt"
@@ -2563,7 +2603,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2584,16 +2625,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "f3f9e62d-314f-46a1-8f6c-57e9dc7ba6bd",
+                  "title": "Tampering with Driver Earnings Notification",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Altering payout notification amounts displayed on the driver's device across TB-04b: Driver Role Zone.",
+                  "mitigation": "Send earnings notifications over encrypted TLS connections and rely on server-side ledger totals for actual payouts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": "6.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Earnings update"
@@ -2757,17 +2817,7 @@
                 "x": 370,
                 "y": -30
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "shape": "flow",
@@ -3066,7 +3116,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -3087,15 +3138,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "10060da1-bb74-44ed-a2e5-813e3e1b281b",
+                  "title": "Interception / Corruption of Final Payment Audit Log",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Corrupting or dropping financial ledger entries written to DS-02: Trip History DB following trip completion.",
+                  "mitigation": "Wrap payment status commits and trip updates in atomic database transactions over encrypted SSL/TLS DB channels.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": "7.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Fare and payment status"
@@ -3708,6 +3778,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Mr. Formentera",
-    "threatTop": 34
+    "threatTop": 38
   }
 }
