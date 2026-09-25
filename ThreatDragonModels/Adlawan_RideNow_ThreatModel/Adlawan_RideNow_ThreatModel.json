@@ -928,14 +928,7 @@
                 "elevationOfPrivilege": 1
               }
             },
-            "children": [],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
-            }
+            "children": []
           },
           {
             "position": {
@@ -1077,7 +1070,8 @@
                 "denialOfService": 1,
                 "elevationOfPrivilege": 0
               }
-            }
+            },
+            "children": []
           },
           {
             "position": {
@@ -1377,11 +1371,13 @@
                 "text": "DS-03: Location Cache"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1478,13 +1474,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "706b4efd-0bc1-4d0d-b90d-ddc36967cff3",
+                  "title": "Unauthorized Real-Time Location Tracking / Privacy Leak",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Insecure access controls on DS-03: Location Cache (e.g., Redis) allow attackers to sniff live driver and rider locations in real time.",
+                  "mitigation": "Require password/TLS authentication for cache instances, isolate memory caches in private subnets, and expire location keys rapidly (e.g., TTL < 30s).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "8.0"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1501,11 +1517,13 @@
                 "text": "DS-02: Trip History DB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1602,20 +1620,41 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "23559ea2-386c-4c29-90e4-8dd0445ab3bb",
+                  "title": "Tampering with Historical Trip and Billing Records",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Unauthorized modifications to historical ride entries in DS-02: Trip History DB alter accounting audit trails and payout records.",
+                  "mitigation": "Utilize append-only logs for completed trips and enforce database user roles preventing UPDATE or DELETE actions on closed trip records.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "7.5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1636,16 +1675,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "59d8b2e8-e2ed-4dfe-982a-9a31a27fe822",
+                  "title": "Tampering with Trip Destination Parameters",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker manipulates geocode coordinates or pickup addresses in transit to hijack ride origin points.",
+                  "mitigation": "Validate and sanitize all location inputs on the server side; encrypt traffic over HTTPS.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "7.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Pickup and destination"
@@ -1665,7 +1723,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1686,16 +1745,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "05c3cd67-f75c-4981-b3ef-7acd016bdb4f",
+                  "title": "Eavesdropping of User Credentials in Transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Plaintext login credentials intercepted crossing TB-01: Internet (untrusted).",
+                  "mitigation": "Enforce HTTPS/TLS 1.3 across all public ingress endpoints.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "8.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Credentials"
@@ -1715,7 +1793,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1736,16 +1815,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "cd977b1f-3e3a-4fa2-9e5d-a97036d3903d",
+                  "title": "Eavesdropping of User Credentials in Transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Plaintext login credentials intercepted crossing TB-01: Internet (untrusted).",
+                  "mitigation": "Enforce HTTPS/TLS 1.3 across all public ingress endpoints.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "8.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Credentials"
@@ -1759,7 +1857,12 @@
               "cell": "2a012e59-3aa1-4553-85b8-3284e0f5544c",
               "port": "fec164dd-3061-40e4-97a0-2c96183bbb0c"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 400,
+                "y": 570
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -1865,7 +1968,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1886,16 +1990,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "06a29ce6-ca8a-4c4a-a6ba-bf3046000ea4",
+                  "title": "Tampering with Route and Distance Responses",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "A man-in-the-middle alters distance and ETA payload values returned from the external mapping API to manipulate fare calculations.",
+                  "mitigation": "Validate API response signatures and enforce strict TLS certificate validation on external integrations.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "7.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "d1f66b59-3ebc-42b6-b78e-53751022210c"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Coordinates, route, ETA"
@@ -2030,7 +2153,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2051,16 +2175,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "e689e3ec-405a-4489-86ce-822ca2a57769",
+                  "title": "Session Token Interception and Payload Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Intercepting or altering session tokens in transit across the untrusted network boundary to manipulate authentication claims.",
+                  "mitigation": "Digitally sign tokens (e.g., RS256 JWTs) and deliver them via HttpOnly, Secure, SameSite=Strict flags over TLS 1.3.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": "8.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Session token"
@@ -2085,7 +2228,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2106,16 +2250,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "effe85ee-04d7-4512-b64c-9e439f4f797d",
+                  "title": "Fare Estimate Payload Tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Modifying estimated price displays in transit to trick riders regarding expected trip costs.",
+                  "mitigation": "Sign fare estimation payloads and enforce TLS 1.3 on all client communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "6.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Fare estimate"
@@ -2350,7 +2513,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2371,16 +2535,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "a3779a87-9e6e-429d-9ad0-3206effa733c",
+                  "title": "Session Token Interception and Payload Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Intercepting or altering session tokens in transit across the untrusted network boundary to manipulate authentication claims.",
+                  "mitigation": "Digitally sign tokens (e.g., RS256 JWTs) and deliver them via HttpOnly, Secure, SameSite=Strict flags over TLS 1.3.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "8.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Session token"
@@ -2396,8 +2579,8 @@
             },
             "vertices": [
               {
-                "x": 440,
-                "y": 560
+                "x": 450,
+                "y": 590
               }
             ]
           },
@@ -2460,7 +2643,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2481,16 +2665,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "8f9c52e1-06f3-4f8a-95ce-8d89290414c6",
+                  "title": "Interception of User Location and Movement Intent",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Outbound route requests exposed over unencrypted channels reveal user travel patterns to network eavesdroppers.",
+                  "mitigation": "Use HTTPS/TLS 1.3 for all external API integration calls.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "6.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "d1f66b59-3ebc-42b6-b78e-53751022210c"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Geocode and route request"
@@ -2619,7 +2822,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2640,15 +2844,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "5bef18ff-a18a-45bd-bbb9-4e7e20ddf5cf",
+                  "title": "Eavesdropping of Internal Database Query / Profile Data",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Intercepting unencrypted profile lookup responses in transit between process 1.0 and the database tier.",
+                  "mitigation": "Enforce SSL/TLS-encrypted database connections across the data tier boundary.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "7.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Look up user and role"
@@ -2834,7 +3057,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2855,15 +3079,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "45d334eb-e3f6-4965-96cf-1f05948109ed",
+                  "title": "Exhaustion of Memory Cache Connections (Location Cache DoS)",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Flooding driver proximity cache lookup requests causes connection pool exhaustion on DS-03: Location Cache.",
+                  "mitigation": "Implement query caching layers, connection pooling, and strict request rate-limiting.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": "6.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "Nearby available drivers"
@@ -2882,7 +3125,17 @@
                 "x": 960,
                 "y": 770
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -2947,11 +3200,13 @@
                 "text": "DS-01: User Profiles DB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -3048,13 +3303,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "916788dc-d9d6-48ac-ab38-dcfbeed1a3ef",
+                  "title": "Unauthorized Disclosure of Sensitive User Profiles and Saved Tokens",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure",
+                  "description": "An attacker accesses DS-01: User Profiles DB across the app-to-data boundary, exposing PII, phone numbers, and payment tokens.",
+                  "mitigation": "Encrypt PII at rest using AES-256 and restrict network ingress strictly to application tier service IPs via Network Security Groups (NSGs).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "9.0"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -3233,6 +3508,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Mr. Formentera",
-    "threatTop": 10
+    "threatTop": 24
   }
 }
