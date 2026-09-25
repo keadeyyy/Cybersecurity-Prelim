@@ -1868,7 +1868,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1889,16 +1890,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "9dab0cb7-738a-4a7c-907f-6fdce8e25892",
+                  "title": "Tampering with Match Acceptance Response",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Intercepting driver decision payloads in transit and changing a \"Decline\" decision to \"Accept\".",
+                  "mitigation": "Validate driver session context and require cryptographically signed acceptance tokens.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": "7.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Accept or decline"
@@ -1918,7 +1938,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1939,16 +1960,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "41df38ac-b5ee-4e60-a810-59f95e3b0a87",
+                  "title": "GPS Location Update Packet Flooding",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Sending thousands of rapid telemetry packets per second to exhaust 4.0 Track Trip processing threads.",
+                  "mitigation": "Throttle client location telemetry updates (e.g., maximum one update per 3–5 seconds per active driver).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": "6.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "GPS location updates"
@@ -2303,7 +2343,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2324,16 +2365,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "4c95fb36-b0e4-40a1-8b01-86eebf1a4704",
+                  "title": "Unauthorized Eavesdropping of Live Tracking Coordinates",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Intercepting live coordinate streams broadcasted to riders, compromising driver and rider physical safety.",
+                  "mitigation": "Authorize WebSocket channels so only the matched rider can subscribe to the driver's tracking topic over WSS (WebSocket Secure).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": "7.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Live driver location"
@@ -2353,7 +2413,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2374,16 +2435,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "edeb3d42-4e3e-4667-9c73-5294f9ca36cb",
+                  "title": "Disclosure of Vehicle and Driver Details",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Intercepting matched driver and vehicle details across the internet boundary before arrival.",
+                  "mitigation": "Send notification payloads strictly over encrypted TLS connections to the authenticated requesting rider.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": "5.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Driver, vehicle, ETA"
@@ -2408,7 +2488,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2429,16 +2510,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "262860b3-bc61-48ff-ad70-1c694429663d",
+                  "title": "Tampering with Driver Offer Details",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Altering pickup coordinates or rider details sent to drivers across TB-04b: Driver Role Zone.",
+                  "mitigation": "Encrypt notification streams (e.g., WebSockets over TLS) and sign notification payload signatures.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": "7.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Ride offer and pickup point"
@@ -2718,7 +2818,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2739,16 +2840,35 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "92699d45-0a04-4811-9d4f-8ea576886cf0",
+                  "title": "Denial of Service via Flooded Mapping Requests",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Excessive distance matrix API requests exhaust outbound API quotas on EE-04: Mapping/Geolocation API.",
+                  "mitigation": "Batch matrix calculations, cache recent route queries, and implement circuit breakers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": "6.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a",
                 "d1f66b59-3ebc-42b6-b78e-53751022210c"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Distance matrix request"
@@ -2768,7 +2888,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2789,15 +2910,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "7c40a7f6-c2e8-495e-80aa-f13beb5c56e1",
+                  "title": "Disclosure of Stored Payment Tokens in Transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Eavesdropping on stored gateway payment tokens transmitted across the internal data tier boundary.",
+                  "mitigation": "Enforce TLS encryption for database transit and tokenize/mask all stored credit card references.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": "8.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Stored payment token"
@@ -2816,7 +2956,17 @@
                 "x": 870,
                 "y": 280
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -3003,7 +3153,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -3024,15 +3175,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "9d09f95f-cec7-4942-9e68-f4a54a6064d6",
+                  "title": "Tampering with In-Flight Trip State Records",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Intercepting and corrupting trip status state updates sent to DS-02: Trip History DB.",
+                  "mitigation": "Use encrypted database connections (SSL/TLS) and validate status transitions state-machine side.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": "7.0"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Route and trip status"
@@ -3125,23 +3295,14 @@
                 "x": 960,
                 "y": 770
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -3162,15 +3323,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "d68c19a5-0fe1-484c-87ca-103e90899e9b",
+                  "title": "Tampering with Cache Location State",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Manipulating location payloads written into DS-03: Location Cache to alter global driver availability maps.",
+                  "mitigation": "Enforce server-side location sanity checks before committing coordinates to memory caches.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": "7.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "d58c51c6-0659-4328-91e5-97ab00fddc4a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Write driver location"
@@ -3508,6 +3688,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Mr. Formentera",
-    "threatTop": 24
+    "threatTop": 33
   }
 }
