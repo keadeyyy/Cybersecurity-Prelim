@@ -523,8 +523,8 @@
                 "text": "EE-02:Driver"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -621,9 +621,34 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "14c7dbb0-eb53-4bea-beef-09448c420bb6",
+                  "title": "Driver Identity Spoofing / Rogue Driver",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An unverified or malicious individual logs in using a compromised Driver account to accept rides, falsify locations, or harvest rider contact details.",
+                  "mitigation": "Implement mandatory identity verification checks (e.g., biometric facial scan prompts), device fingerprinting, and mTLS for driver app connections.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "8.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -640,8 +665,8 @@
                 "text": "EE-01:Rider"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -738,9 +763,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "47204bd6-43f3-408a-9eec-a20ec24c55de",
+                  "title": "Rider Identity Spoofing / Credential Compromise",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker steals or guesses a legitimate Rider account credential to log in and request fraudulent rides, billing trips to the victim's saved payment method.",
+                  "mitigation": "Enforce Multi-Factor Authentication (MFA), strict password policies, and rate-limiting on login attempts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "8.0"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -3043,6 +3086,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Mr. Formentera",
-    "threatTop": 0
+    "threatTop": 3
   }
 }
