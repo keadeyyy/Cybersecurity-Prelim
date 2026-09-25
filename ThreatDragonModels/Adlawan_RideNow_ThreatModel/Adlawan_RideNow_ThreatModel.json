@@ -63,8 +63,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "d58c51c6-0659-4328-91e5-97ab00fddc4a",
             "zIndex": -1,
+            "id": "d58c51c6-0659-4328-91e5-97ab00fddc4a",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "RideNow Backend",
@@ -179,8 +179,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "7bfb4ac7-fa4e-477a-8f03-806f75a28cf0",
             "zIndex": -1,
+            "id": "7bfb4ac7-fa4e-477a-8f03-806f75a28cf0",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "TB-03: Mapping API Zone - backend to Mapping API",
@@ -212,8 +212,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "d1f66b59-3ebc-42b6-b78e-53751022210c",
             "zIndex": -1,
+            "id": "d1f66b59-3ebc-42b6-b78e-53751022210c",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "TB-02: Payment Zone - backend to Payment Processor",
@@ -232,30 +232,47 @@
           },
           {
             "position": {
-              "x": 40,
-              "y": 270
+              "x": 39.99999999999872,
+              "y": 270.0000000000001
             },
             "size": {
-              "width": 128,
-              "height": 60
+              "width": 220,
+              "height": 500
             },
             "attrs": {
               "label": {
-                "text": "Trust Boundary"
+                "text": "TB-01: Internet (untrusted) - internet to backend"
               }
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "2627d7f7-8f3e-4363-85b4-96895f3bb80d",
             "zIndex": -1,
+            "id": "2627d7f7-8f3e-4363-85b4-96895f3bb80d",
             "data": {
               "type": "tm.BoundaryBox",
-              "name": "Trust Boundary",
+              "name": "TB-01: Internet (untrusted) - internet to backend",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
+              "crossingFlows": [
+                "282a30ee-6685-49c8-b7b1-af041c1cb3f8",
+                "f49eff7a-0411-493b-9168-b90052a3070c",
+                "bf721a03-38da-451b-b335-1af674f978a7",
+                "a96cdc4a-4673-45a8-9529-0c664ff72d65",
+                "f6590d85-44ba-45e7-b058-c0d5844a656e",
+                "e3de5088-8596-4c95-ac1b-92ca9c308eea",
+                "5b6a858c-9e0c-4b53-8f3e-a28aff46e14b",
+                "aea19ae3-85be-451f-9348-a9488d3c97a0",
+                "915de025-e15c-4385-a951-cb10b6aa500c",
+                "0ee3a737-5902-4d8f-bcdf-d475d1e9146c",
+                "0d0ecbc2-613e-47d0-b20b-aef7b3664777",
+                "d3516b04-9696-489b-9b4e-ae1c651f7af4",
+                "a39a68d5-628d-4493-b847-18654976056b"
+              ],
+              "containedElements": [
+                "6da8276a-b42f-4a4e-a887-007eb6caf75e",
+                "f81ea220-f05a-49c4-8a40-855092617d51"
+              ]
             }
           },
           {
@@ -279,6 +296,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -362,7 +380,6 @@
               ]
             },
             "id": "400c8e5e-b6d4-4901-a5e2-56c49212c5df",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "EE-04: Mapping/\nGeolocation API",
@@ -396,6 +413,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -479,7 +497,6 @@
               ]
             },
             "id": "38f1c14a-7733-4156-bb92-60132849255c",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "EE-03: Payment \nProcessor",
@@ -513,6 +530,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -596,7 +614,6 @@
               ]
             },
             "id": "6da8276a-b42f-4a4e-a887-007eb6caf75e",
-            "zIndex": 3,
             "data": {
               "type": "tm.Actor",
               "name": "EE-02:Driver",
@@ -630,6 +647,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -713,7 +731,6 @@
               ]
             },
             "id": "f81ea220-f05a-49c4-8a40-855092617d51",
-            "zIndex": 4,
             "data": {
               "type": "tm.Actor",
               "name": "EE-01:Rider",
@@ -747,6 +764,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -830,7 +848,6 @@
               ]
             },
             "id": "caadb4e1-a99f-471f-a042-b3440c564880",
-            "zIndex": 5,
             "data": {
               "type": "tm.Process",
               "name": "5.0 Process Fare",
@@ -868,6 +885,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -951,7 +969,6 @@
               ]
             },
             "id": "e8b4ac8c-783f-4ea8-b112-cf2323fbaec3",
-            "zIndex": 6,
             "data": {
               "type": "tm.Process",
               "name": "2.0 Request Ride",
@@ -988,6 +1005,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 7,
             "ports": {
               "groups": {
                 "top": {
@@ -1071,7 +1089,6 @@
               ]
             },
             "id": "77493b42-4562-44d4-bf4f-db07e9b0706d",
-            "zIndex": 7,
             "data": {
               "type": "tm.Process",
               "name": "4.0 Track Tip",
@@ -1108,6 +1125,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 8,
             "ports": {
               "groups": {
                 "top": {
@@ -1191,7 +1209,6 @@
               ]
             },
             "id": "9cffe02a-6628-4a5f-8d5b-9129399d8fbd",
-            "zIndex": 8,
             "data": {
               "type": "tm.Process",
               "name": "3.0 Match Driver",
@@ -1231,6 +1248,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 9,
             "ports": {
               "groups": {
                 "top": {
@@ -1314,7 +1332,6 @@
               ]
             },
             "id": "cc51ff65-6354-4c17-826e-96bc97b6eb71",
-            "zIndex": 9,
             "data": {
               "type": "tm.Store",
               "name": "DS-03: Location Cache",
@@ -1355,6 +1372,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 10,
             "ports": {
               "groups": {
                 "top": {
@@ -1438,7 +1456,6 @@
               ]
             },
             "id": "81373e4a-88bc-4582-8a86-d05eed23c564",
-            "zIndex": 10,
             "data": {
               "type": "tm.Store",
               "name": "DS-02: Trip History DB",
@@ -1487,7 +1504,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -1536,7 +1554,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -1585,7 +1604,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -1634,7 +1654,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -1683,7 +1704,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -1842,7 +1864,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -1896,7 +1919,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -1950,7 +1974,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -2004,7 +2029,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -2053,7 +2079,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -2107,7 +2134,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -2161,7 +2189,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -2210,7 +2239,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d58c51c6-0659-4328-91e5-97ab00fddc4a"
+                "d58c51c6-0659-4328-91e5-97ab00fddc4a",
+                "2627d7f7-8f3e-4363-85b4-96895f3bb80d"
               ]
             },
             "labels": [
@@ -2600,6 +2630,10 @@
               {
                 "x": 910,
                 "y": 520
+              },
+              {
+                "x": 1070,
+                "y": 260
               }
             ]
           },
@@ -2784,6 +2818,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -2867,7 +2902,6 @@
               ]
             },
             "id": "1579eb04-04cc-46e0-affe-82001e55300e",
-            "zIndex": 11,
             "data": {
               "type": "tm.Store",
               "name": "DS-01: User Profiles DB",
@@ -2905,6 +2939,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -2988,7 +3023,6 @@
               ]
             },
             "id": "2a012e59-3aa1-4553-85b8-3284e0f5544c",
-            "zIndex": 12,
             "data": {
               "type": "tm.Process",
               "name": "1.0 Authenticate User",
